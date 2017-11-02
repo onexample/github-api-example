@@ -1,7 +1,12 @@
 export interface Repository {
-    name: string;
-    description: string;
-    html_url: string;
+    id?: number;
+    name?: string;
+    description?: string;
+    html_url?: string;
+    fork?: boolean;
+    parent?: {
+        html_url?: string
+    };
 }
 
 

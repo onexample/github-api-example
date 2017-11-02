@@ -31,6 +31,9 @@ export class RepositoryService {
         return this.get(this._nextLink)
     }
 
+    getById(id): Observable<Repository> {
+        return this._http.get(`${this._apiUrl}/${id}`)
+    }
 
     private get(url): Observable<Repository[]> {
         return this._http
