@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Repository } from './repositories';
 import { RepositoryService } from './repositories.service';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/observable/forkJoin';
-import 'rxjs/add/operator/mergeMap';
-
 @Component({
     moduleId: module.id,
     selector: 'repositories',
@@ -32,15 +27,6 @@ export class RepositoriesComponent implements OnInit{
     ngOnInit(): void {
         this._repositoryService
             .getAll()
-            .mergeMap(
-                repos => Observable.forkJoin(
-                    repos.map(
-                        repo => repo.fork ?
-                        this._repositoryService.getById(repo.id) :
-                        Observable.of(repo)
-                    )
-                )
-            )
             .subscribe(res => this.repositories = res)
     }
 

@@ -4,8 +4,12 @@ import { Repository } from './repositories';
 import { API_URL } from './repositories.config';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/pluck'
-import 'rxjs/add/operator/do'
+import 'rxjs/add/operator/pluck';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/operator/mergeMap';
 
 
 @Injectable()
@@ -40,6 +44,15 @@ export class RepositoryService {
             .get(url,{ observe: 'response'})
             .do(res => this._nextLink = this.parseHeaders(res))
             .pluck('body')
+            .mergeMap(
+                (repos: Repository[]) => Observable.forkJoin(
+                    repos.map(
+                        (repo: Repository) => repo.fork ?
+                            this.getById(repo.id) :
+                            Observable.of(repo)
+                    )
+                )
+            )
     }
 
 
