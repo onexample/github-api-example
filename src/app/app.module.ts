@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RepositoriesModule } from './main/repositories/repositories.module';
 import { MatButtonModule, MatToolbarModule, MatSidenavModule } from '@angular/material';
 import { NavigationModule } from './navigation/navigation.module';
+import { DataTableModule } from './main/data-table/data-table.module';
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { NavigationModule } from './navigation/navigation.module';
         BrowserAnimationsModule,
         NavigationModule,
         RepositoriesModule,
+        DataTableModule,
         MatToolbarModule,
         MatButtonModule,
         BrowserModule,
