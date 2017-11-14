@@ -1,15 +1,22 @@
 import { Component } from '@angular/core';
-import { RepositoryService } from './repositories/repositories.service';
+import { RepositoryService } from './main/repositories/repositories.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-root',
     template: `
-        <mat-toolbar color="primary">
-            <span>Repositories</span>
-            <span class="fill-remaining-space"></span>
-            <button mat-button (click)="showNext()">NEXT</button>
-        </mat-toolbar>
-        <router-outlet (activate)="onActivate($event)"></router-outlet>        
+        <mat-sidenav-container >
+            <mat-sidenav #sidenav mode="push">
+                <navigation (nav)="sidenav.close()"></navigation>
+            </mat-sidenav>
+            <mat-toolbar color="primary">
+                <button type="button" mat-button (click)="sidenav.toggle()">MENU</button>
+                <span>Repositories</span>
+                <span class="fill-remaining-space"></span>
+                <button mat-button (click)="showNext()">NEXT</button>
+            </mat-toolbar>
+            <router-outlet (activate)="onActivate($event)"></router-outlet>
+        </mat-sidenav-container>        
     `,
     styles: [
         `
@@ -24,8 +31,14 @@ export class AppComponent {
     private _ref;
 
     constructor(
-        private _repositoryService: RepositoryService
-    ) { }
+        private _repositoryService: RepositoryService,
+        private _router: Router
+    ) {
+
+        this._router.events.subscribe(event =>{
+            console.log(event)
+        })
+    }
 
     showNext() {
 

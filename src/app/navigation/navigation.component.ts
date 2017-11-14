@@ -1,10 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { Router, Routes } from '@angular/router';
 
 @Component({
     moduleId: module.id,
     selector: 'navigation',
-    templateUrl: 'navigation.component.html'
+    templateUrl: 'navigation.component.html',
+    encapsulation: ViewEncapsulation.None
 })
 export class NavigationComponent implements OnInit{
 
