@@ -6,6 +6,7 @@ import { RepositoryService } from './repositories.service';
     moduleId: module.id,
     selector: 'repositories',
     templateUrl: 'repositories.component.html',
+    styleUrls: ['repositories.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class RepositoriesComponent implements OnInit{
@@ -20,6 +21,13 @@ export class RepositoriesComponent implements OnInit{
         this._repositoryService
             .getAll()
             .subscribe(res => this.repositories = res)
+    }
+
+    showNext() {
+
+        this._repositoryService
+            .getNext()
+            .subscribe(res => this.repositories = res )
     }
 
 

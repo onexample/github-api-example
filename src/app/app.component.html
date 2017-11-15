@@ -1,0 +1,25 @@
+<div class="main">
+
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav mode="push">
+            <navigation (nav)="sidenav.close()"></navigation>
+        </mat-sidenav>
+
+        <div class="sidenav-content">
+
+            <div class="header">
+                <mat-toolbar color="primary">
+                    <button type="button" mat-button (click)="sidenav.toggle()">MENU</button>
+                </mat-toolbar>
+            </div>
+
+            <div class="router-content">
+                <router-outlet></router-outlet>
+            </div>
+
+        </div>
+
+    </mat-sidenav-container>
+
+</div>
+

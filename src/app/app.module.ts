@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RepositoriesModule } from './main/repositories/repositories.module';
-import { MatButtonModule, MatToolbarModule, MatSidenavModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatSidenavModule, MatProgressSpinnerModule } from '@angular/material';
 import { NavigationModule } from './navigation/navigation.module';
 import { DataTableModule } from './main/data-table/data-table.module';
 
@@ -21,6 +21,7 @@ import { DataTableModule } from './main/data-table/data-table.module';
         MatButtonModule,
         BrowserModule,
         MatSidenavModule,
+        MatProgressSpinnerModule,
         AppRoutingModule
     ],
     providers: [ ],

@@ -1,0 +1,21 @@
+.main {
+
+    .sidenav-content {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+        .header {
+
+        }
+
+        .router-content{
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+    }
+}

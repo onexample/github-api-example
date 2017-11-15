@@ -4,7 +4,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
     moduleId: module.id,
     selector: 'data-table',
     templateUrl: 'data-table.component.html',
-    styleUrls: ['data-table.component.css'],
+    styleUrls: ['data-table.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class DataTableComponent {
