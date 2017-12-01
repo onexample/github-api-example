@@ -4,13 +4,13 @@ import { RepositoriesComponent } from './repositories.component';
 
 export const REPOSITORIES_ROUTES: Routes = [
     {
-        path: 'repositories',
+        path: '',
         component: RepositoriesComponent
     }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(REPOSITORIES_ROUTES)],
+    imports: [RouterModule.forChild(REPOSITORIES_ROUTES)],
     exports: [RouterModule]
 })
 export class RepositoriesRoutingModule { }
