@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -7,7 +7,4 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
     styleUrls: [ 'app.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
-
-
-}
+export class AppComponent { }
