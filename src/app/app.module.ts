@@ -7,6 +7,8 @@ import { RepositoriesModule } from './main/repositories/repositories.module';
 import { MatButtonModule, MatToolbarModule, MatSidenavModule, MatProgressSpinnerModule } from '@angular/material';
 import { NavigationModule } from './navigation/navigation.module';
 import { DataTableModule } from './main/data-table/data-table.module';
+import { environment } from "../environments/environment";
+import { ServiceWorkerModule, SwUpdate, SwPush } from '@angular/service-worker';
 
 @NgModule({
     declarations: [
@@ -22,11 +24,27 @@ import { DataTableModule } from './main/data-table/data-table.module';
         BrowserModule,
         MatSidenavModule,
         MatProgressSpinnerModule,
-        AppRoutingModule
+        AppRoutingModule,
+        environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : []
     ],
     providers: [ ],
     bootstrap: [
         AppComponent
     ]
 })
-export class AppModule { }
+export class AppModule {
+
+    constructor(
+        private update: SwUpdate,
+        private push: SwPush
+    ){
+
+
+        this.update.activated.subscribe(e =>console.log('activated:' ,e));
+        this.update.available.subscribe(e =>console.log('available', e));
+
+        this.push.messages.subscribe(m => console.log('message', m));
+
+
+    }
+}
