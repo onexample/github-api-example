@@ -1,6 +1,8 @@
 # GithubApiExample
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.7.
+## Launch
+
+Run `ng build --prod && node server.js` then open localhost:5000
 
 ## Development server
 
